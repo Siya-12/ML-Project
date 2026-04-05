@@ -1,4 +1,9 @@
 import streamlit as st
+
+import traceback
+
+try:
+    
 import numpy as np
 import joblib
 
@@ -79,3 +84,10 @@ if st.button("🔍 Predict Insurance Cost"):
         st.warning("⚠️ Smoking significantly increases insurance cost!")
     if bmi > 30:
         st.info("💡 High BMI may increase premium.")
+
+    pass
+except Exception as e:
+    import streamlit as st
+    st.error(str(e))
+    st.text(traceback.format_exc())
+
