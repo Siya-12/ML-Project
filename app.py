@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-import pickle
+import joblib
 
 # Page config
 st.set_page_config(page_title="Insurance Predictor", page_icon="💰", layout="centered")
@@ -33,8 +33,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Load model
-model = pickle.load(open("model.pkl", "rb"))
+# Load model safely
+model = joblib.load("model.joblib")
 
 # Title
 st.markdown('<div class="title">💰 Medical Insurance Cost Predictor</div>', unsafe_allow_html=True)
